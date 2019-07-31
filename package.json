@@ -1,0 +1,24 @@
+{
+  "name": "gifts-service",
+  "version": "1.0.0",
+  "description": "Manipulação de listas de presentes",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/server.js"
+  },
+  "author": "Arthur Lima",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "http": "0.0.0",
+    "mongoose": "^5.6.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "bin": {
+    "gifts-service": "server.js"
+  }
+}
