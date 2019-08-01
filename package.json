@@ -4,10 +4,7 @@
   "description": "Manipulação de listas de presentes",
   "main": "index.js",
   "scripts": {
-    "start": "node ./bin/server.js",
-    "build": "run-p build:**",
-    "start:lambda": "netlify-lambda serve src",
-    "build:lambda": "netlify-lambda build src"
+    "start": "node ./bin/server.js"
   },
   "author": "Arthur Lima",
   "license": "ISC",
