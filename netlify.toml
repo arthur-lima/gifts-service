@@ -1,4 +1,4 @@
 [build]
+    publish = "./build-output"
     command = "echo 'default context'"
-    functions = "built-lambda"
-    publish = "src"
+    
