@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./bin/server.js",
-    "start:lambda": "netlify-lambda serve src/lambda",
     "build": "run-p build:**",
+    "start:lambda": "netlify-lambda serve src/lambda",
     "build:lambda": "netlify-lambda build src/lambda"
   },
   "author": "Arthur Lima",
@@ -25,5 +25,13 @@
   },
   "bin": {
     "gifts-service": "./bin/server.js"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthur-lima/gifts-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arthur-lima/gifts-service/issues"
+  },
+  "homepage": "https://github.com/arthur-lima/gifts-service#readme"
 }
