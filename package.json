@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node ./bin/server.js",
     "build": "run-p build:**",
-    "start:lambda": "netlify-lambda serve src/lambda",
-    "build:lambda": "netlify-lambda build src/lambda"
+    "start:lambda": "netlify-lambda serve src",
+    "build:lambda": "netlify-lambda build src"
   },
   "author": "Arthur Lima",
   "license": "ISC",
