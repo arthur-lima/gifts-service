@@ -8,7 +8,7 @@ router.get('/', controller.buscarTodos);
 router.get('/:nome', controller.buscarPorNome);
 router.get('/admin/:id', controller.buscarPorID);
 router.get('/pessoal/:email', controller.buscarPorEmail);
-router.post('/', controller.criar);
+router.post('/', controller.cadastrar);
 router.put('/:id', controller.atualizar);
 router.delete('/', controller.deletar);
 

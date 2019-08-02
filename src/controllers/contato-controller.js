@@ -38,9 +38,9 @@ exports.buscarPorID = async (req, res, next) => {
     }
 }
 
-exports.criar = async (req, res, next) => {
+exports.cadastrar = async (req, res, next) => {
     try {
-        const data = await contatoRepository.criar(req.body);
+        const data = await contatoRepository.cadastrar(req.body);
         res.status(201).send({
             message: 'Contato cadastrado com sucesso!'
         })

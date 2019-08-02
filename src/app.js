@@ -11,6 +11,11 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+
 
 //conecta ao banco
 mongoose.connect(
@@ -19,18 +24,16 @@ mongoose.connect(
 );
 mongoose.set('useCreateIndex', true);
 //carrega models
-const Contato = require('./models/contato-model')
+const contatoModel = require('./models/contato-model')
+const presenteModel = require('./models/presente-model');
 
 //carrega as rotas
 const indexRoute = require('./routes/index-route');
 const contatoRoute = require('./routes/contato-route');
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
+const presenteRoute = require('./routes/presente-route');
 
 app.use('/', indexRoute);
 app.use('/contatos', contatoRoute);
+app.use('/presentes', presenteRoute);
 
 module.exports = app;
