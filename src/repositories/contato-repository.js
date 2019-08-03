@@ -23,12 +23,13 @@ exports.buscarPorID = async (id) => {
     return res;
 }
 
-exports.cadastar = async (contato) => {
+exports.cadastrar = async (contato) => {
     let c = new Contato();
     c.nome = contato.nome;
     c.email = contato.email;
     c.telefone = contato.telefone;
     c.mensagem = contato.mensagem;
+    c.presentes = contato.presentes;
 
     const res = await c.save();
     return res;

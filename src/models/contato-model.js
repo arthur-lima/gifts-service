@@ -27,8 +27,8 @@ const schema = new Schema({
     },
     presentes: [{
         type: Schema.Types.ObjectId,
-        ref: 'Action',
-        required: false
+        ref: 'Presente',
+        required: true
     }]
 });
 

@@ -16,13 +16,13 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-
 //conecta ao banco
 mongoose.connect(
     config.connectionString,
     { useNewUrlParser: true }
 );
 mongoose.set('useCreateIndex', true);
+
 //carrega models
 const contatoModel = require('./models/contato-model')
 const presenteModel = require('./models/presente-model');

@@ -4,7 +4,8 @@
   "description": "Manipulação de listas de presentes",
   "main": "index.js",
   "scripts": {
-    "start": "node ./bin/server.js"
+    "start": "node ./bin/server.js",
+    "local": "nodemon ./bin/server.js"
   },
   "author": "Arthur Lima",
   "license": "ISC",
