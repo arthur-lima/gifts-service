@@ -23,6 +23,11 @@ exports.buscarPorNome = async (req, res, next) => {
 exports.buscarPorEmail = async (req, res, next) => {
     try {
         const data = await contatoRepository.buscarPorEmail(req.params.email);
+        if(!data){
+            //TODO: NÃO TA INDO O ERRO
+            es.status(500).send("E-mail não cadastrado");
+            throw "";
+        }
         res.status(200).send(data);
     } catch (error) {
         res.status(500).send(error);
