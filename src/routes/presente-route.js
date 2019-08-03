@@ -2,10 +2,11 @@
 
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/presente-controller');
+const presenteController = require('../controllers/presente-controller');
 
-router.get('/', controller.buscarTodos);
-router.post('/', controller.cadastrar);
-router.post('/cadastrar-em-lote', controller.cadastrarEmLote);
+router.get('/', presenteController.buscarTodos);
+router.post('/', presenteController.cadastrar);
+router.post('/cadastrar-em-lote', presenteController.cadastrarEmLote);
+router.put('/', presenteController.atualizar)
 
 module.exports = router;

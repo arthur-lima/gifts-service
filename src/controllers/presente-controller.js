@@ -34,3 +34,17 @@ exports.cadastrarEmLote = async (req, res, next) => {
         res.status(500).send(error);
     }
 }
+
+exports.atualizar = async (req, res, next) => {
+    try {
+        const data = await presenteRepository.atualizar(req.params.id, req.body);
+        res.status(200).send({
+            message: 'Presente atualizado com sucesso!'
+        });
+    } catch (error) {
+        res.status(400).send({
+            message: 'Falha ao atualizar presente!',
+            data: error
+        });
+    }
+};

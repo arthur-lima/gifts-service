@@ -24,6 +24,9 @@ exports.buscarPorID = async (id) => {
 }
 
 exports.cadastrar = async (contato) => {
+    if(!contato || !contato.presentes){
+        throw "Contato inválido ou sem presente.";
+    }
     let c = new Contato();
     c.nome = contato.nome;
     c.email = contato.email;
@@ -36,13 +39,17 @@ exports.cadastrar = async (contato) => {
 }
 
 exports.atualizar = async (id, contato) => {
+    if(!contato || !contato.presentes){
+        throw "Contato inválido ou sem presente.";
+    }
     const res = await Contato
         .findByIdAndUpdate(id, {
             $set: {
                 nome: contato.nome,
                 email: contato.email,
                 telefone: contato.telefone,
-                mensagem: contato.mensagem
+                mensagem: contato.mensagem,
+                presentes: contato.presentes
             }
         });
 

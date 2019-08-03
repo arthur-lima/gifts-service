@@ -18,3 +18,17 @@ exports.cadastrar = async (presente) => {
     const res = await p.save();
     return res;
 }
+
+exports.atualizar = async (id, presente) => {
+    const res = await presente
+        .findByIdAndUpdate(id, {
+            $set: {
+                nome: presente.nome,
+                descricao: presente.descricao,
+                valor: presente.valor,
+                nomeImagem: presente.nomeImagem
+            }
+        });
+
+    return res;
+}

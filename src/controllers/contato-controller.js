@@ -23,7 +23,7 @@ exports.buscarPorNome = async (req, res, next) => {
 exports.buscarPorEmail = async (req, res, next) => {
     try {
         const data = await contatoRepository.buscarPorEmail(req.params.email);
-        if(!data){
+        if (!data) {
             //TODO: NÃO TA INDO O ERRO
             es.status(500).send("E-mail não cadastrado");
             throw "";
@@ -60,9 +60,12 @@ exports.cadastrar = async (req, res, next) => {
 exports.atualizar = async (req, res, next) => {
     try {
         const data = await contatoRepository.atualizar(req.params.id, req.body);
-        res.status(200).send({
-            message: 'Contato atualizado com sucesso!'
-        });
+        if (!data) {
+            //TODO: NÃO TA INDO O ERRO
+            es.status(500).send("Contato não cadastrado");
+            throw "";
+        }
+        res.status(200).send({ message: 'Contato atualizado com sucesso!' });
     } catch (error) {
         res.status(400).send({
             message: 'Falha ao atualizar contato!',
