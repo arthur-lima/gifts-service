@@ -33,6 +33,7 @@ exports.cadastrar = async (contato) => {
     c.telefone = contato.telefone;
     c.mensagem = contato.mensagem;
     c.presentes = contato.presentes;
+    c.dt_criacao = Date.now();
 
     const res = await c.save();
     return res;
@@ -49,7 +50,8 @@ exports.atualizar = async (id, contato) => {
                 email: contato.email,
                 telefone: contato.telefone,
                 mensagem: contato.mensagem,
-                presentes: contato.presentes
+                presentes: contato.presentes,
+                dt_atualizacao: Date.now()
             }
         });
 

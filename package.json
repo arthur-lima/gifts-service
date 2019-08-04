@@ -14,9 +14,7 @@
     "debug": "^4.1.1",
     "express": "^4.17.1",
     "http": "0.0.0",
-    "mongoose": "^5.6.7",
-    "netlify-lambda": "^1.5.1",
-    "sendgrid": "^5.2.3"
+    "mongoose": "^5.6.7"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"

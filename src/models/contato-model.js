@@ -25,6 +25,12 @@ const schema = new Schema({
         required: false,
         trim: true
     },
+    dt_criacao: {
+        type: Date
+    },
+    dt_atualizacao: {
+        type: Date
+    },
     presentes: [{
         type: Schema.Types.ObjectId,
         ref: 'Presente',
