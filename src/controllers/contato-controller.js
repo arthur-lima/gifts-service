@@ -11,6 +11,28 @@ exports.buscarTodos = async (req, res, next) => {
     }
 }
 
+exports.buscarRelatorio = async (req, res, next) => {
+    try {
+        const contatos = await contatoRepository.buscarTodosComJoins();
+        res.status(200).send(contruirRelatorio(contatos));
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
+function contruirRelatorio(contatos) {
+    return contatos.map(c => ({
+        nome: c.nome,
+        email: c.email,
+        telefone: c.telefone,
+        mensagem: c.mensagem,
+        presentes: c.presentes.map(p => ({
+            nome: p.nome,
+            valor: p.valor
+        }))
+    }));
+}
+
 exports.buscarPorNome = async (req, res, next) => {
     try {
         const data = await contatoRepository.buscarPorNome(req.params.nome);
@@ -24,9 +46,7 @@ exports.buscarPorEmail = async (req, res, next) => {
     try {
         const data = await contatoRepository.buscarPorEmail(req.params.email);
         if (!data) {
-            //TODO: NÃO TA INDO O ERRO
-            es.status(500).send("E-mail não cadastrado");
-            throw "";
+            throw "E-mail não cadastrado";
         }
         res.status(200).send(data);
     } catch (error) {
@@ -61,9 +81,7 @@ exports.atualizar = async (req, res, next) => {
     try {
         const data = await contatoRepository.atualizar(req.params.id, req.body);
         if (!data) {
-            //TODO: NÃO TA INDO O ERRO
-            es.status(500).send("Contato não cadastrado");
-            throw "";
+            throw "Contato não cadastrado";
         }
         res.status(200).send({ message: 'Contato atualizado com sucesso!' });
     } catch (error) {

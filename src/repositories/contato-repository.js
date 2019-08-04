@@ -8,6 +8,11 @@ exports.buscarTodos = async () => {
     return res;
 }
 
+exports.buscarTodosComJoins = async () => {
+    const res = await Contato.find({}).populate('presentes');
+    return res;
+}
+
 exports.buscarPorNome = async (nome) => {
     const res = await Contato.find({ nome: nome });
     return res;

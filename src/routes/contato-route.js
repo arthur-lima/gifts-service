@@ -2,14 +2,15 @@
 
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/contato-controller');
+const contatoController = require('../controllers/contato-controller');
 
-router.get('/', controller.buscarTodos);
-router.get('/:id', controller.buscarPorID);
-router.get('/nome/:nome', controller.buscarPorNome);
-router.get('/email/:email', controller.buscarPorEmail);
-router.post('/', controller.cadastrar);
-router.put('/:id', controller.atualizar);
-router.delete('/', controller.deletar);
+router.get('/', contatoController.buscarTodos);
+router.get('/relatorio', contatoController.buscarRelatorio);
+router.get('/:id', contatoController.buscarPorID);
+router.get('/nome/:nome', contatoController.buscarPorNome);
+router.get('/email/:email', contatoController.buscarPorEmail);
+router.post('/', contatoController.cadastrar);
+router.put('/:id', contatoController.atualizar);
+router.delete('/', contatoController.deletar);
 
 module.exports = router;

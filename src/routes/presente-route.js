@@ -7,6 +7,6 @@ const presenteController = require('../controllers/presente-controller');
 router.get('/', presenteController.buscarTodos);
 router.post('/', presenteController.cadastrar);
 router.post('/cadastrar-em-lote', presenteController.cadastrarEmLote);
-router.put('/', presenteController.atualizar)
+router.put('/', presenteController.atualizar);
 
 module.exports = router;
